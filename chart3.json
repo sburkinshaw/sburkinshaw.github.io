@@ -1,0 +1,21 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/sburkinshaw/sburkinshaw.github.io/main/insolvencies_csv_github.csv"
+  },
+  "transform": [
+    {"calculate": "replace(datum.Period, 'Q1', '-02-15')", "as": "y"}, 
+    {"calculate": "replace(datum.y, 'Q2', '-05-15')", "as": "y"},
+    {"calculate": "replace(datum.y, 'Q3', '-08-15')", "as": "y"},
+    {"calculate": "replace(datum.y, 'Q4', '-11-15')", "as": "y"}, 
+    {"calculate": "toDate(datum.y)", "as": "y"}
+  ],
+  "title": {"text": "UK Corporate Insolvencies"},
+  "width": 300,
+  "height": 300,
+  "mark": {"type": "line", "color": "red"},
+  "encoding": {
+    "x": {"field": "y", "type": "temporal"},
+    "y": {"field": "EW_Total_Company_NSA", "type": "quantitative"}
+  }
+}
