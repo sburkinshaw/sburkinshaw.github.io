@@ -4,7 +4,7 @@
      
        "title": {
         "text": "UK Corporate Insolvencies",
-        "subtitle":"Total number of insolvencies. Source: Insolvency Service.",
+        "subtitle":"Total number of insolvencies, NSA. Source: Insolvency Service.",
         "subtitleFontStyle":"italic",
         "subtitleFontSize":10,
         "anchor": "start",
@@ -14,11 +14,11 @@
     "url": "https://raw.githubusercontent.com/sburkinshaw/sburkinshaw.github.io/main/insolvencies_csv_github.csv"
   },
   "transform": [
-    {"calculate": "replace(datum.Period, 'Q1', '-02-15')", "as": "y"}, 
-    {"calculate": "replace(datum.y, 'Q2', '-05-15')", "as": "y"},
-    {"calculate": "replace(datum.y, 'Q3', '-08-15')", "as": "y"},
-    {"calculate": "replace(datum.y, 'Q4', '-11-15')", "as": "y"}, 
-    {"calculate": "toDate(datum.y)", "as": "y"}
+    {"calculate": "replace(datum.Period, 'Q1', '-02-15')", "as": "Date"}, 
+    {"calculate": "replace(datum.Date, 'Q2', '-05-15')", "as": "Date"},
+    {"calculate": "replace(datum.Date, 'Q3', '-08-15')", "as": "Date"},
+    {"calculate": "replace(datum.Date, 'Q4', '-11-15')", "as": "Date"}, 
+    {"calculate": "toDate(datum.Date)", "as": "Date"}
   ],
     
     "repeat": {"layer": ["EW_Total_Company_NSA", "EW_Compulsory_NSA", "EW_CVL_NSA"]},
@@ -34,7 +34,7 @@
   
         "encoding": {
             "x": {
-                "field": "y",
+                "field": "Date",
                 "type": "temporal"},
     
             "y": {
