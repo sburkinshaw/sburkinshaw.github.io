@@ -1,0 +1,17 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+
+"data" : {"url": "https://raw.githubusercontent.com/sburkinshaw/sburkinshaw.github.io/main/s5_eco_words.csv"
+},
+"mark" : "bar", 
+"encoding": {
+  "x": {"field":"count", "type":"quantitative"},
+  "y": {"field": "word", "sort":"-x"},
+  "color" : {"value":"purple"}
+}, 
+"title" : {
+  "text": "Economics Observatory Terms", 
+  "subtitle" : ["Most common terms on economicobservatory.com","February 14th, 2024"]
+}
+
+}
