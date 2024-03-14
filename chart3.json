@@ -21,7 +21,7 @@
     {"calculate": "toDate(datum.Date)", "as": "Date"}
   ],
     
-    "repeat": {"layer": ["EW_Total_Company_NSA", "EW_Compulsory_NSA", "EW_CVL_NSA"]},
+    "repeat": {"layer": ["Total", "Compulsory", "CVL"]},
    
     "spec": {
         
