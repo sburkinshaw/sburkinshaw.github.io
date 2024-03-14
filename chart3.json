@@ -1,5 +1,15 @@
+
 {
-  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+     
+       "title": {
+        "text": "UK Corporate Insolvencies",
+        "subtitle":"Total number of insolvencies. Source: Insolvency Service.",
+        "subtitleFontStyle":"italic",
+        "subtitleFontSize":10,
+        "anchor": "start",
+        "color": "black"},
+    
   "data": {
     "url": "https://raw.githubusercontent.com/sburkinshaw/sburkinshaw.github.io/main/insolvencies_csv_github.csv"
   },
@@ -10,12 +20,31 @@
     {"calculate": "replace(datum.y, 'Q4', '-11-15')", "as": "y"}, 
     {"calculate": "toDate(datum.y)", "as": "y"}
   ],
-  "title": {"text": "UK Corporate Insolvencies"},
-  "width": 300,
-  "height": 300,
-  "mark": {"type": "line", "color": "red"},
-  "encoding": {
-    "x": {"field": "y", "type": "temporal"},
-    "y": {"field": "EW_Total_Company_NSA", "type": "quantitative"}
+    
+    "repeat": {"layer": ["EW_Total_Company_NSA", "EW_Compulsory_NSA", "EW_CVL_NSA"]},
+   
+    "spec": {
+        
+        "height": 300,
+        "width": 500,
+ 
+        "mark": {
+            "type":"line",
+            "strokeWidth":2},    
+  
+        "encoding": {
+            "x": {
+                "field": "y",
+                "type": "temporal"},
+    
+            "y": {
+                "field": {"repeat": "layer"},
+                "type": "quantitative",
+                "title": null},
+    
+            "color": {
+                "datum": {"repeat": "layer"},
+                "scale": {"range": ["blue", "red", "green"]}}
+          } 
+      }
   }
-}
