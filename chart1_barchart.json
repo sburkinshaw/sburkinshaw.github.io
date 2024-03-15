@@ -1,0 +1,28 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+ 
+  "title": {"text": "CPI inflation, %"},
+ 
+  "width": 300,
+  "height": 200,
+   
+  "data": {
+    "values": [
+        {"Country": "UK","CPI inflation": 4.0},
+        {"Country": "USA","CPI inflation": 3.2},
+        {"Country": "Canada","CPI inflation": 2.9},
+        {"Country": "Euro Area","CPI inflation": 2.8},
+        {"Country": "China","CPI inflation": 0.70}]
+  },
+ 
+  "mark": {
+    "type": "bar",
+    "color": "purple"},
+ 
+  "encoding": {
+    "x": {"field": "Country"},  
+ 
+    "y": {
+      "field": "CPI inflation",
+      "type": "quantitative"}}
+}
